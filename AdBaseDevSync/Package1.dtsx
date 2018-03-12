@@ -1,25 +1,25 @@
 ﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="2/3/2017 6:52:35 AM"
+  DTS:CreationDate="3/12/2018 1:41:54 AM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="MT3SQL6"
-  DTS:CreatorName="MT3\VS_O7PILufex7"
-  DTS:DTSID="{2EEC1EF7-BCC7-4ADD-B1EC-3C5A01427C40}"
+  DTS:CreatorName="MT3\VD_RRFa3EFm5WKc"
+  DTS:DTSID="{DE4A5522-4DBD-42C9-ACE6-E7F1B5D75681}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="14.0.0600.250"
   DTS:LocaleID="1033"
-  DTS:ObjectName="AdBaseDevSync"
+  DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="277"
-  DTS:VersionGUID="{96737818-783A-4C3E-AFB2-A7D6E5362A94}">
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{DC8F74A6-BD4A-486F-85A1-D65ED63F6F1F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[MT3SQL6.msdb]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{FE68CA4F-7D93-4966-B693-D2624179E2C2}"
+      DTS:DTSID="{CB8B2BAB-0922-4AA5-88A6-E1E9D10C729A}"
       DTS:ObjectName="MT3SQL6.msdb">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -29,7 +29,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[MT3SQL6.OneMT_Dev]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{28CE571E-03AD-481F-BF33-257E4AE61AD9}"
+      DTS:DTSID="{FFA906C7-3115-452E-9901-958728AC83B3}"
       DTS:ObjectName="MT3SQL6.OneMT_Dev">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -39,7 +39,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[SMTP]"
       DTS:CreationName="SMTP"
-      DTS:DTSID="{0C0ADEDB-35F3-4D38-AB43-E72A6E807342}"
+      DTS:DTSID="{60DCC1F2-3BDB-437B-9A4B-4A25EA628798}"
       DTS:ObjectName="SMTP">
       <DTS:ObjectData>
         <SmtpConnectionManager
@@ -52,7 +52,7 @@
       DTS:ConfigString="MT3SQL6.msdb"
       DTS:CreationName="Microsoft.LogProviderSQLServer"
       DTS:Description="Writes log entries for events to a SQL Server database"
-      DTS:DTSID="{B9CC2E7C-6628-44AA-A12A-CCAE13FF8091}"
+      DTS:DTSID="{E550AFF7-94D6-4ED6-A817-6B8E6B4D5438}"
       DTS:ObjectName="SSIS log provider for SQL Server">
       <DTS:ObjectData>
         <InnerObject />
@@ -62,16 +62,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{997B5B01-5698-42E2-AFDD-61B8C33BD8FF}"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="AdLog">
-      <DTS:VariableValue
-        DTS:DataType="8">AdLog</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{FF7E0E44-C9B8-432E-A8E8-E4E51D28DD44}"
+      DTS:DTSID="{F20C053D-FB90-4970-B0A3-B0F9297FF3BD}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="AdLogStagingEmail">
@@ -80,83 +71,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{19C23232-4CF8-45FD-84DB-F709EFE63DF8}"
-      DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;Select &#xA;AdID&#xA;,LogTimeStamp&#xA;,LogDMLOperation&#xA;,RecutDetail&#xA;,(select CTLegacyLanguageID From &quot;+ @[User::MTDB] + &quot;.dbo.Language L where L.LanguageID=Ad.LanguageID ) as EthnicFlag&#xA;,EndDt&#xA;,LeadText&#xA;,AdVisual&#xA;,FirstRunDate&#xA;,LeadAvHeadline&#xA;,Description&#xA;,InternalNotes&#xA;,LastRunDate&#xA;,TagLineID&#xA;,(select CTLegacyINSTCOD from &quot;+ @[User::MTDB] + &quot;.dbo.Advertiser where AdvertiserId = Coop1AdvId) as Coop1AdvId&#xA;,(select CTLegacyINSTCOD from &quot;+ @[User::MTDB] + &quot;.dbo.Advertiser where AdvertiserId = Coop2AdvId) as Coop2AdvId&#xA;,(select CTLegacyINSTCOD from &quot;+ @[User::MTDB] + &quot;.dbo.Advertiser where AdvertiserId = Coop3AdvId) as Coop3AdvId&#xA;,(select CTLegacyINSTCOD from &quot;+ @[User::MTDB] + &quot;.dbo.Advertiser where AdvertiserId = Comp1AdvId) as Comp1AdvId&#xA;,(select CTLegacyINSTCOD  from &quot;+ @[User::MTDB] + &quot;.dbo.Advertiser where AdvertiserId = Comp2AdvId) as Comp2AdvId&#xA;,(Select CTLegacyLMKTCODE  From &quot;+ @[User::MTDB] + &quot;.dbo.Market Where cast(FirstRunMarket as varchar) =  cast(MarketID as varchar)) as FirstRunMarket&#xA;,ISNULL((select CTLegacyINSTCOD from &quot;+ @[User::MTDB] + &quot;.dbo.advertiser adv Where adv.AdvertiserID=Ad.AdvertiserID),AdvertiserID) as AdvertiserID&#xA;,ISNULL((select CTLegacyPRCODE from &quot;+ @[User::MTDB] + &quot;.dbo.RefProduct where RefProduct.RefProductID = Ad.ProductID),'TBD') as ProductID&#xA;,(select CTLegacyAdCode from &quot;+ @[User::MTDB] + &quot;.dbo.Ad A where A.AdID = Ad.RecutAdId) as RecutAdId&#xA;,CASE WHEN Unclassified = 1 THEN 'U' Else 'S' ENd as Unclassified&#xA;,(select Descrip from &quot;+ @[User::MTDB] + &quot;.dbo.advertiser adv Where adv.AdvertiserID=Ad.AdvertiserID) as AdvertiserName&#xA;,OldVal_AddlInfo&#xA;,OldVal_EthnicFlag&#xA;,OldVal_EndDt&#xA;,OldVal_ADName&#xA;,OldVal_AdVisual&#xA;,OldVal_FirstRunDate&#xA;,OldVal_LeadAvHeadline&#xA;,OldVal_Description&#xA;,OldVal_InternalNotes&#xA;,OldVal_LastRunDate&#xA;,OldVal_TagLineID&#xA;,OldVal_Coop1AdvId&#xA;,OldVal_Coop2AdvId&#xA;,OldVal_Coop3AdvId&#xA;,OldVal_Comp1AdvId&#xA;,OldVal_Comp2AdvId&#xA;,OldVal_FirstRunMarket&#xA;,OldVal_AdvertiserID&#xA;,OldVal_ProductID&#xA;,OldVal_RecutAdId&#xA;,OldVal_Unclassified&#xA;,(select Distinct FIRST_VALUE(LandingURL) over(Partition by ad.adid order by l.CreatedDT asc) From &quot;+ @[User::MTDB] + &quot;.dbo.OccurrenceDetailEM E JOIN &quot;+ @[User::MTDB] + &quot;.dbo.LandingPage L ON E.LandingPageID=L.LandingPageID where E.AdID=Ad.AdID) as LandingPageURL&#xA;,(&#x9;select RefClassificationGroup.ClassificationGroupCODE from &quot;+ @[User::MTDB] + &quot;.dbo.WWTIndustryadvertiser &#xA;&#x9;join  &quot;+ @[User::MTDB] + &quot;.dbo.WWTIndustry on WWTIndustry.WWTIndustryID = WWTIndustryadvertiser.WWTIndustryID&#xA;&#x9;join  &quot;+ @[User::MTDB] + &quot;.dbo.RefClassificationGroup on RefClassificationGroup.RefClassificationGroupID = WWTIndustry.classificationgroupid&#xA;&#x9;where ad.AdvertiserID = WWTIndustryAdvertiser.AdvertiserID &#xA;) as ClassificationGroupCODE&#xA;,(select B.Inits from &quot;+ @[User::MTDB] + &quot;.dbo.[User] B where Ad.CreatedBy=B.UserId) as CreatedBy&#xA;,(select B.Inits from &quot;+ @[User::MTDB] + &quot;.dbo.[User] B where Ad.ModifiedBy=B.UserId) as ModifiedBY&#xA;,CreateDate&#xA;From adlogstagingEmail Ad&quot;"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="AdLogStagingEmailToOra">
-      <DTS:VariableValue
-        DTS:DataType="8">Select 
-AdID
-,LogTimeStamp
-,LogDMLOperation
-,RecutDetail
-,(select CTLegacyLanguageID From OneMT.dbo.Language L where L.LanguageID=Ad.LanguageID ) as EthnicFlag
-,EndDt
-,LeadText
-,AdVisual
-,FirstRunDate
-,LeadAvHeadline
-,Description
-,InternalNotes
-,LastRunDate
-,TagLineID
-,(select CTLegacyINSTCOD from OneMT.dbo.Advertiser where AdvertiserId = Coop1AdvId) as Coop1AdvId
-,(select CTLegacyINSTCOD from OneMT.dbo.Advertiser where AdvertiserId = Coop2AdvId) as Coop2AdvId
-,(select CTLegacyINSTCOD from OneMT.dbo.Advertiser where AdvertiserId = Coop3AdvId) as Coop3AdvId
-,(select CTLegacyINSTCOD from OneMT.dbo.Advertiser where AdvertiserId = Comp1AdvId) as Comp1AdvId
-,(select CTLegacyINSTCOD  from OneMT.dbo.Advertiser where AdvertiserId = Comp2AdvId) as Comp2AdvId
-,(Select CTLegacyLMKTCODE  From OneMT.dbo.Market Where cast(FirstRunMarket as varchar) =  cast(MarketID as varchar)) as FirstRunMarket
-,ISNULL((select CTLegacyINSTCOD from OneMT.dbo.advertiser adv Where adv.AdvertiserID=Ad.AdvertiserID),AdvertiserID) as AdvertiserID
-,ISNULL((select CTLegacyPRCODE from OneMT.dbo.RefProduct where RefProduct.RefProductID = Ad.ProductID),'TBD') as ProductID
-,(select CTLegacyAdCode from OneMT.dbo.Ad A where A.AdID = Ad.RecutAdId) as RecutAdId
-,CASE WHEN Unclassified = 1 THEN 'U' Else 'S' ENd as Unclassified
-,(select Descrip from OneMT.dbo.advertiser adv Where adv.AdvertiserID=Ad.AdvertiserID) as AdvertiserName
-,OldVal_AddlInfo
-,OldVal_EthnicFlag
-,OldVal_EndDt
-,OldVal_ADName
-,OldVal_AdVisual
-,OldVal_FirstRunDate
-,OldVal_LeadAvHeadline
-,OldVal_Description
-,OldVal_InternalNotes
-,OldVal_LastRunDate
-,OldVal_TagLineID
-,OldVal_Coop1AdvId
-,OldVal_Coop2AdvId
-,OldVal_Coop3AdvId
-,OldVal_Comp1AdvId
-,OldVal_Comp2AdvId
-,OldVal_FirstRunMarket
-,OldVal_AdvertiserID
-,OldVal_ProductID
-,OldVal_RecutAdId
-,OldVal_Unclassified
-,(select Distinct FIRST_VALUE(LandingURL) over(Partition by ad.adid order by l.CreatedDT asc) From OneMT.dbo.OccurrenceDetailEM E JOIN OneMT.dbo.LandingPage L ON E.LandingPageID=L.LandingPageID where E.AdID=Ad.AdID) as LandingPageURL
-,(	select RefClassificationGroup.ClassificationGroupCODE from OneMT.dbo.WWTIndustryadvertiser 
-	join  OneMT.dbo.WWTIndustry on WWTIndustry.WWTIndustryID = WWTIndustryadvertiser.WWTIndustryID
-	join  OneMT.dbo.RefClassificationGroup on RefClassificationGroup.RefClassificationGroupID = WWTIndustry.classificationgroupid
-	where ad.AdvertiserID = WWTIndustryAdvertiser.AdvertiserID 
-) as ClassificationGroupCODE
-,(select B.Inits from OneMT.dbo.[User] B where Ad.CreatedBy=B.UserId) as CreatedBy
-,(select B.Inits from OneMT.dbo.[User] B where Ad.ModifiedBy=B.UserId) as ModifiedBY
-,CreateDate
-From adlogstagingEmail Ad</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{FDB4BA88-1D2A-4DEB-A4F2-C1CD6E0C9A68}"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="AdOraStag">
-      <DTS:VariableValue
-        DTS:DataType="8">FMEMAADS_STG</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{3A8ECC7C-B56B-4C8F-9DB9-E7233ED2A8F9}"
+      DTS:DTSID="{A5087FA8-7291-44AD-8348-DBC2B043A7A9}"
       DTS:EvaluateAsExpression="True"
       DTS:Expression="&quot;select distinct a.* &#xA;FROM &quot;+ @[User::MTLogDB] + &quot;.dbo.AdLog A &#xA;JOIN &quot;+ @[User::MTDB] + &quot;.dbo.Pattern B on A.AdID=B.AdID&#xA;where B.MediaStream=154 and LogTimeStamp Between '&quot;+(DT_WSTR, 1252)@[User::StartDate]+  &quot;' AND '&quot;+ (DT_WSTR, 1252)@[User::EndDate] +&quot;'&quot;"
       DTS:IncludeInDebugDump="2345"
@@ -166,11 +81,11 @@ From adlogstagingEmail Ad</DTS:VariableValue>
         DTS:DataType="8">select distinct a.* 
 FROM OneMT.dbo.AdLog A 
 JOIN OneMT.dbo.Pattern B on A.AdID=B.AdID
-where B.MediaStream=154 and LogTimeStamp Between '2/3/2017 6:57:44 AM' AND '2/3/2017 6:55:00 AM'</DTS:VariableValue>
+where B.MediaStream=154 and LogTimeStamp Between '3/12/2018 3:05:48 AM' AND '3/12/2018 3:05:53 AM'</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{980B0DE5-E7AC-4D2F-9CFB-B9166F7F3D61}"
+      DTS:DTSID="{77BDE37A-E077-4EB1-B227-B82101CED8BC}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="DMLOp">
@@ -180,26 +95,26 @@ where B.MediaStream=154 and LogTimeStamp Between '2/3/2017 6:57:44 AM' AND '2/3/
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{0F7D00DD-440F-44AE-8DB9-498C7CEC4F6E}"
+      DTS:DTSID="{1C37FF69-1D05-4E62-99E1-E8D40420BF21}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="EmailList">
       <DTS:VariableValue
-        DTS:DataType="8">vshukla@markettrack.com</DTS:VariableValue>
+        DTS:DataType="8">vipuld@markettrack.com</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{35E35FE3-C84B-4057-8865-46610D64E0DF}"
+      DTS:DTSID="{79A479B5-080C-4E30-81AC-43D06F20CCE1}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="EndDate">
       <DTS:VariableValue
-        DTS:DataType="7">2/3/2017 6:55:00 AM</DTS:VariableValue>
+        DTS:DataType="7">3/12/2018 3:05:53 AM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{763AF0D2-AF5F-47BD-8B87-FE2F6E83BFF9}"
-      DTS:IncludeInDebugDump="6789"
+      DTS:DTSID="{B65C7370-F153-4475-B3F7-EC64F43C57BF}"
+      DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="IsDebug">
       <DTS:VariableValue
@@ -207,7 +122,7 @@ where B.MediaStream=154 and LogTimeStamp Between '2/3/2017 6:57:44 AM' AND '2/3/
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{7B8F45CC-0A9C-4FD1-A84B-408B475662A5}"
+      DTS:DTSID="{C6A267C9-DD3E-4A07-871E-12F1F36EA7F6}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="Media">
@@ -217,7 +132,7 @@ where B.MediaStream=154 and LogTimeStamp Between '2/3/2017 6:57:44 AM' AND '2/3/
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{E451BEE6-507B-47E9-B3A9-6E448F17E56D}"
+      DTS:DTSID="{40B36465-D521-4978-8624-AAF1AA50FFE4}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="MTDB">
@@ -226,7 +141,7 @@ where B.MediaStream=154 and LogTimeStamp Between '2/3/2017 6:57:44 AM' AND '2/3/
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{FA69CD84-54AD-4E83-B6AE-A0B0626C22F5}"
+      DTS:DTSID="{9AAA8A86-10C8-423E-B570-92EDFE24CB83}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="MTLogDB">
@@ -235,7 +150,7 @@ where B.MediaStream=154 and LogTimeStamp Between '2/3/2017 6:57:44 AM' AND '2/3/
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{C3662AEA-6815-4414-98C0-FE38F7A13806}"
+      DTS:DTSID="{FB2097AC-70D0-4856-991F-1CCA86BD72F0}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="MTTable">
@@ -244,86 +159,7 @@ where B.MediaStream=154 and LogTimeStamp Between '2/3/2017 6:57:44 AM' AND '2/3/
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{4F802B40-684B-4A53-AFB8-2D6B260F774E}"
-      DTS:EvaluateAsExpression="True"
-      DTS:Expression="@[User::MTTable]+&quot;LogStaging&quot;"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="MTTableStaging">
-      <DTS:VariableValue
-        DTS:DataType="8">AdLogStaging</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{3DFEE833-738A-447D-8F22-0AFABA59C7CE}"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="OccurrenceDetailEMLog">
-      <DTS:VariableValue
-        DTS:DataType="8">OccurrenceDetailEMLog</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{FC1E8968-68FE-4E74-9E39-9AB48CAA433E}"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="OccurrenceDetailEMLogStaging">
-      <DTS:VariableValue
-        DTS:DataType="8">OccurrenceDetailEMLogStaging</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{A9117261-1753-4332-97D2-A9B8677F8421}"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="OccurrenceDetailEMOraStag">
-      <DTS:VariableValue
-        DTS:DataType="8"
-        xml:space="preserve"></DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{49946075-3CE6-4A79-B5B7-E7727BB2D646}"
-      DTS:EvaluateAsExpression="True"
-      DTS:Expression="&quot;Select * From OneMT_Dev.dbo.OccurrenceDetailEMLog Where LogTimeStamp Between '&quot;+(DT_WSTR, 1252)@[User::StartDate]+  &quot;' AND '&quot;+ (DT_WSTR, 1252)@[User::EndDate] +&quot;'&quot;"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="OccurrenceDetailEMQuery">
-      <DTS:VariableValue
-        DTS:DataType="8">Select * From OneMT_Dev.dbo.OccurrenceDetailEMLog Where LogTimeStamp Between '2/3/2017 6:57:44 AM' AND '2/3/2017 6:55:00 AM'</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{363818D0-E2D5-4D87-B4AA-1DB92358E0B5}"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="OraSPCall">
-      <DTS:VariableValue
-        DTS:DataType="8">SP Call</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{625297BA-AE73-4F27-A993-A8F3355795FF}"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="OraTable">
-      <DTS:VariableValue
-        DTS:DataType="8">FMEMAADS</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{28AB2E3F-1AD6-4844-9F68-92D40E2C3F2C}"
-      DTS:EvaluateAsExpression="True"
-      DTS:Expression="@[User::OraTable]+&quot;_STG&quot;"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="OraTableStg">
-      <DTS:VariableValue
-        DTS:DataType="8">FMEMAADS_STG</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{01367B7A-EE68-483F-BA5B-1FA788BF46AD}"
+      DTS:DTSID="{6EF77AD4-31B3-4C3B-9059-1E0288A17565}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="ProcessName">
@@ -333,7 +169,7 @@ where B.MediaStream=154 and LogTimeStamp Between '2/3/2017 6:57:44 AM' AND '2/3/
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{2784FDF4-DA92-4EAD-8253-313B71B7AE1A}"
+      DTS:DTSID="{F79E14F5-7504-48BF-BB67-B17EE3767D9E}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="Query">
@@ -343,8 +179,8 @@ where B.MediaStream=154 and LogTimeStamp Between '2/3/2017 6:57:44 AM' AND '2/3/
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{CD7CC569-11E1-4B8E-BF60-30C9B18E0307}"
-      DTS:IncludeInDebugDump="2345"
+      DTS:DTSID="{3B1C0C62-F64A-495A-87CC-D4A8887C46B8}"
+      DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="Resultset">
       <DTS:VariableValue
@@ -361,7 +197,7 @@ where B.MediaStream=154 and LogTimeStamp Between '2/3/2017 6:57:44 AM' AND '2/3/
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{610075D8-1A6A-4404-99D3-B945981E6AD1}"
+      DTS:DTSID="{AE888FBA-30A5-409E-87D6-98EFA6692CDF}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="Run">
@@ -370,25 +206,16 @@ where B.MediaStream=154 and LogTimeStamp Between '2/3/2017 6:57:44 AM' AND '2/3/
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{22A069D8-2A00-443B-BF04-E16BBFC549A7}"
-      DTS:IncludeInDebugDump="2345"
+      DTS:DTSID="{C11B9D3C-D2DF-4B64-B297-8EE72E5BC3B6}"
+      DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
       DTS:ObjectName="StartDate">
       <DTS:VariableValue
-        DTS:DataType="7">2/3/2017 6:57:44 AM</DTS:VariableValue>
+        DTS:DataType="7">3/12/2018 3:05:48 AM</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{2347D83D-DC66-482E-9620-01455DDE613C}"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="SyncDb">
-      <DTS:VariableValue
-        DTS:DataType="8">OneMT_Sync</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{8D2A49E9-F425-4819-B993-15F7E01B296E}"
+      DTS:DTSID="{39305089-BCB3-41A9-BE16-98583071179C}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="TableType">
@@ -396,31 +223,13 @@ where B.MediaStream=154 and LogTimeStamp Between '2/3/2017 6:57:44 AM' AND '2/3/
         DTS:DataType="8"
         xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{A6F51299-C814-4459-9EC6-7638AC100AF0}"
-      DTS:IncludeInDebugDump="6789"
-      DTS:Namespace="User"
-      DTS:ObjectName="Variable">
-      <DTS:VariableValue
-        DTS:DataType="3">0</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{4C3F072D-B889-4BA7-8B7A-7A05578A8982}"
-      DTS:IncludeInDebugDump="6789"
-      DTS:Namespace="User"
-      DTS:ObjectName="Variable1">
-      <DTS:VariableValue
-        DTS:DataType="3">0</DTS:VariableValue>
-    </DTS:Variable>
   </DTS:Variables>
   <DTS:LoggingOptions
     DTS:FilterKind="0"
     DTS:LoggingMode="1">
     <DTS:Property
       DTS:DataType="8"
-      DTS:Name="EventFilter">4,7,OnError,13,OnPostExecute,12,OnPreExecute,12,OnTaskFailed</DTS:Property>
+      DTS:Name="EventFilter">4,7,OnError,13,OnPostExecute,14,OnPostValidate,12,OnTaskFailed</DTS:Property>
     <DTS:Property
       DTS:EventName="OnError"
       DTS:Name="ColumnFilter">
@@ -458,7 +267,7 @@ where B.MediaStream=154 and LogTimeStamp Between '2/3/2017 6:57:44 AM' AND '2/3/
         DTS:Name="DataBytes">-1</DTS:Property>
     </DTS:Property>
     <DTS:Property
-      DTS:EventName="OnPreExecute"
+      DTS:EventName="OnPostValidate"
       DTS:Name="ColumnFilter">
       <DTS:Property
         DTS:Name="Computer">-1</DTS:Property>
@@ -495,7 +304,7 @@ where B.MediaStream=154 and LogTimeStamp Between '2/3/2017 6:57:44 AM' AND '2/3/
     </DTS:Property>
     <DTS:SelectedLogProviders>
       <DTS:SelectedLogProvider
-        DTS:InstanceID="{B9CC2E7C-6628-44AA-A12A-CCAE13FF8091}" />
+        DTS:InstanceID="{E550AFF7-94D6-4ED6-A817-6B8E6B4D5438}" />
     </DTS:SelectedLogProviders>
   </DTS:LoggingOptions>
   <DTS:Executables>
@@ -503,7 +312,7 @@ where B.MediaStream=154 and LogTimeStamp Between '2/3/2017 6:57:44 AM' AND '2/3/
       DTS:refId="Package\Assign Media Values"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{A356CC09-92F8-4BC5-A75E-644DD8CE59E5}"
+      DTS:DTSID="{da90de06-4de2-42af-9927-7445b3c216ab}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Assign Media Values"
@@ -514,7 +323,7 @@ where B.MediaStream=154 and LogTimeStamp Between '2/3/2017 6:57:44 AM' AND '2/3/
         DTS:FilterKind="0" />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{28CE571E-03AD-481F-BF33-257E4AE61AD9}"
+          SQLTask:Connection="{FFA906C7-3115-452E-9901-958728AC83B3}"
           SQLTask:SqlStatementSource="Select MTTable,MTDB,MTLogDB,Media,TableType,ProcessName,DMLOp,IsDebug,Run&#xA;From SynchronizationProcessControl Where Media='Email' and TableType='Occurrences'  and run=1 &#xA;order by Priority"
           SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -527,7 +336,7 @@ where B.MediaStream=154 and LogTimeStamp Between '2/3/2017 6:57:44 AM' AND '2/3/
       DTS:refId="Package\Email List"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{135D5DFF-D40B-490F-8597-A1554736C206}"
+      DTS:DTSID="{95b15ab0-bd4a-4618-ac0c-3e6c4323a3dc}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Email List"
@@ -538,7 +347,7 @@ where B.MediaStream=154 and LogTimeStamp Between '2/3/2017 6:57:44 AM' AND '2/3/
         DTS:FilterKind="0" />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{28CE571E-03AD-481F-BF33-257E4AE61AD9}"
+          SQLTask:Connection="{FFA906C7-3115-452E-9901-958728AC83B3}"
           SQLTask:SqlStatementSource="Declare @EmailAddress  varchar(max)=''&#xA;SELECT  @EmailAddress = COALESCE(@EmailAddress ,'') + LTRIM(RTRIM(EmailAddress)) +';'&#xA;FROM EmailList WHERE ERROR=1&#xA;&#xA; Select ?= Substring(@EmailAddress,1,Len(@EmailAddress)-1) " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
@@ -553,13 +362,13 @@ where B.MediaStream=154 and LogTimeStamp Between '2/3/2017 6:57:44 AM' AND '2/3/
       DTS:refId="Package\Loop for Each Table"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:Description="Foreach Loop Container"
-      DTS:DTSID="{6882E80C-0BB1-4CF3-BD27-F433FF7E76AD}"
+      DTS:DTSID="{f3d93c14-a46e-45d6-9f4e-ab55685b69f1}"
       DTS:ExecutableType="STOCK:FOREACHLOOP"
       DTS:LocaleID="-1"
       DTS:ObjectName="Loop for Each Table">
       <DTS:ForEachEnumerator
         DTS:CreationName="Microsoft.ForEachADOEnumerator"
-        DTS:DTSID="{EADB3AC9-80F4-4FBB-9CF6-ADAB9AF9FECC}"
+        DTS:DTSID="{1812f697-6da2-4712-96b4-7fa7ae9851e8}"
         DTS:ObjectName="{365511AB-6959-42F6-A692-F37F8B99FB9C}">
         <DTS:ObjectData>
           <FEEADO
@@ -575,7 +384,7 @@ where B.MediaStream=154 and LogTimeStamp Between '2/3/2017 6:57:44 AM' AND '2/3/
           DTS:refId="Package\Loop for Each Table\Ad"
           DTS:CreationName="STOCK:SEQUENCE"
           DTS:Description="Sequence Container"
-          DTS:DTSID="{3C10C7B4-1FF3-4D93-BD8D-9F5A53848E0B}"
+          DTS:DTSID="{a00e7735-a0d5-4008-8b0f-b3a99db4345b}"
           DTS:ExecutableType="STOCK:SEQUENCE"
           DTS:LocaleID="-1"
           DTS:ObjectName="Ad">
@@ -587,7 +396,7 @@ where B.MediaStream=154 and LogTimeStamp Between '2/3/2017 6:57:44 AM' AND '2/3/
               DTS:refId="Package\Loop for Each Table\Ad\Ad Staging"
               DTS:CreationName="Microsoft.Pipeline"
               DTS:Description="Data Flow Task"
-              DTS:DTSID="{194368F1-106D-417A-9FAA-75DD98F71A9C}"
+              DTS:DTSID="{28d34050-3694-4f6c-9da1-a0504a081674}"
               DTS:ExecutableType="Microsoft.Pipeline"
               DTS:LocaleID="-1"
               DTS:ObjectName="Ad Staging"
@@ -599,7 +408,7 @@ where B.MediaStream=154 and LogTimeStamp Between '2/3/2017 6:57:44 AM' AND '2/3/
                 <DTS:EventHandler
                   DTS:refId="Package\Loop for Each Table\Ad\Ad Staging.EventHandlers[OnError]"
                   DTS:CreationName="OnError"
-                  DTS:DTSID="{A9FAF67C-BF52-4916-B9A8-30A5EDA12105}"
+                  DTS:DTSID="{776af44c-0cb1-4717-9c03-5a752f8f6b1e}"
                   DTS:EventID="1482164119"
                   DTS:EventName="OnError"
                   DTS:LocaleID="-1">
@@ -607,7 +416,7 @@ where B.MediaStream=154 and LogTimeStamp Between '2/3/2017 6:57:44 AM' AND '2/3/
                     <DTS:Variable
                       DTS:CreationName=""
                       DTS:Description="The propagate property of the event"
-                      DTS:DTSID="{DBA396A8-E852-4AA8-AB42-FA40EC29C05A}"
+                      DTS:DTSID="{b50f1c64-1b01-4080-b45b-07ffd81f69f5}"
                       DTS:IncludeInDebugDump="6789"
                       DTS:Namespace="System"
                       DTS:ObjectName="Propagate">
@@ -620,7 +429,7 @@ where B.MediaStream=154 and LogTimeStamp Between '2/3/2017 6:57:44 AM' AND '2/3/
                       DTS:refId="Package\Loop for Each Table\Ad\Ad Staging.EventHandlers[OnError]\Send Mail Task"
                       DTS:CreationName="Microsoft.SendMailTask"
                       DTS:Description="Send Mail Task"
-                      DTS:DTSID="{007D24E6-0D80-4D35-BEF1-281EC9D81135}"
+                      DTS:DTSID="{fbec0d04-7c93-433c-8bba-b8d8e21e43c1}"
                       DTS:ExecutableType="Microsoft.SendMailTask"
                       DTS:LocaleID="-1"
                       DTS:ObjectName="Send Mail Task"
@@ -639,9 +448,9 @@ Error Description:                " + (DT_STR, 2000,1252)  @[System::ErrorDescri
                         <SendMailTask:SendMailTaskData
                           SendMailTask:SMTPServer="{0C0ADEDB-35F3-4D38-AB43-E72A6E807342}"
                           SendMailTask:From="OneMTSync@markettrack.com"
-                          SendMailTask:To="vshukla@markettrack.com"
-                          SendMailTask:Subject="AdBaseDevSync v1.0.277 Error on MT3SQL6"
-                          SendMailTask:MessageSource="Package:                              AdBaseDevSync&#xA;Time:                                      3/9/2018 4:58:08 AM&#xA;Task:                                       &#xA;Error Description:                " xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+                          SendMailTask:To="vipuld@markettrack.com"
+                          SendMailTask:Subject="Package1 v1.0.23 Error on MT3SQL6"
+                          SendMailTask:MessageSource="Package:                              Package1&#xA;Time:                                      3/12/2018 1:41:54 AM&#xA;Task:                                       &#xA;Error Description:                " xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
                       </DTS:ObjectData>
                     </DTS:Executable>
                   </DTS:Executables>
@@ -2961,7 +2770,7 @@ where b.MediaStream=154</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                          name="FastLoadKeepIdentity">false</property>
+                          name="FastLoadKeepIdentity">true</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
@@ -3675,7 +3484,7 @@ where b.MediaStream=154</property>
               DTS:refId="Package\Loop for Each Table\Ad\Copy to OneMTDev Ad"
               DTS:CreationName="Microsoft.Pipeline"
               DTS:Description="Data Flow Task"
-              DTS:DTSID="{5A432533-5E3C-4E73-BCFC-1ED64436A81B}"
+              DTS:DTSID="{6c90ca12-40a7-4896-8a5b-5222b262e9a6}"
               DTS:ExecutableType="Microsoft.Pipeline"
               DTS:LocaleID="-1"
               DTS:ObjectName="Copy to OneMTDev Ad"
@@ -5623,7 +5432,7 @@ where b.MediaStream=154</property>
               DTS:refId="Package\Loop for Each Table\Ad\Execute SQL Task"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
-              DTS:DTSID="{8B61AC36-BC97-4863-8D3C-1097AF51092A}"
+              DTS:DTSID="{488e229b-a826-4ce6-8390-5fbd69b7365f}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
               DTS:ObjectName="Execute SQL Task"
@@ -5651,7 +5460,7 @@ Where RN&gt;1
 "</DTS:PropertyExpression>
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
-                  SQLTask:Connection="{28CE571E-03AD-481F-BF33-257E4AE61AD9}"
+                  SQLTask:Connection="{FFA906C7-3115-452E-9901-958728AC83B3}"
                   SQLTask:SqlStatementSource="&#xA;Delete Ad&#xA;From Ad&#xA;JOIN AdLogStagingEmail_AdBase B ON Ad.AdID=B.AdID&#xA;&#xA;&#xA;;With CTE&#xA;As&#xA;(&#xA;Select *,Row_Number() Over (Partition By AdId Order By LogTimeStamp Desc) as Rn &#xA;From AdLogStagingEmail_AdBase&#xA;Where LogDMLOperation IN ('I','U')&#xA;)Delete &#xA;From CTE&#xA;Where RN&gt;1&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
               </DTS:ObjectData>
             </DTS:Executable>
@@ -5659,7 +5468,7 @@ Where RN&gt;1
               DTS:refId="Package\Loop for Each Table\Ad\Truncate MT Staging table"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
-              DTS:DTSID="{8D289076-7556-4530-B043-29E96127BE01}"
+              DTS:DTSID="{f438f765-a371-4cb8-89ae-e84b16be99be}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
               DTS:ObjectName="Truncate MT Staging table"
@@ -5670,7 +5479,7 @@ Where RN&gt;1
                 DTS:FilterKind="0" />
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
-                  SQLTask:Connection="{28CE571E-03AD-481F-BF33-257E4AE61AD9}"
+                  SQLTask:Connection="{FFA906C7-3115-452E-9901-958728AC83B3}"
                   SQLTask:SqlStatementSource="Truncate table AdLogStagingEmail_AdBase" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
               </DTS:ObjectData>
             </DTS:Executable>
@@ -5679,7 +5488,7 @@ Where RN&gt;1
             <DTS:PrecedenceConstraint
               DTS:refId="Package\Loop for Each Table\Ad.PrecedenceConstraints[Constraint]"
               DTS:CreationName=""
-              DTS:DTSID="{CE7AADDA-02CC-4F53-8AE0-8460907C81D4}"
+              DTS:DTSID="{2ce48281-719f-4cb7-bf59-4d583ae762c7}"
               DTS:From="Package\Loop for Each Table\Ad\Truncate MT Staging table"
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint"
@@ -5687,7 +5496,7 @@ Where RN&gt;1
             <DTS:PrecedenceConstraint
               DTS:refId="Package\Loop for Each Table\Ad.PrecedenceConstraints[Constraint 1]"
               DTS:CreationName=""
-              DTS:DTSID="{3FFA6922-FB92-46DE-AD55-66695EE4DD53}"
+              DTS:DTSID="{77ae9e91-43d8-4a45-8433-b6b428b66987}"
               DTS:From="Package\Loop for Each Table\Ad\Ad Staging"
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint 1"
@@ -5695,7 +5504,7 @@ Where RN&gt;1
             <DTS:PrecedenceConstraint
               DTS:refId="Package\Loop for Each Table\Ad.PrecedenceConstraints[Constraint 2]"
               DTS:CreationName=""
-              DTS:DTSID="{6B8CBC82-17E8-4526-8027-4CBC76E6C6F7}"
+              DTS:DTSID="{9b79d804-816a-4f95-bdc6-3ef16ebf1ae1}"
               DTS:From="Package\Loop for Each Table\Ad\Execute SQL Task"
               DTS:LogicalAnd="True"
               DTS:ObjectName="Constraint 2"
@@ -5706,7 +5515,7 @@ Where RN&gt;1
           DTS:refId="Package\Loop for Each Table\Failure"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Failure"
-          DTS:DTSID="{7CD6DB05-E0EA-48E4-9089-CE8D871EC2C9}"
+          DTS:DTSID="{f2a549fd-dfca-402b-94ba-ea603512e6db}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Failure"
@@ -5717,7 +5526,7 @@ Where RN&gt;1
             DTS:FilterKind="0" />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{28CE571E-03AD-481F-BF33-257E4AE61AD9}"
+              SQLTask:Connection="{FFA906C7-3115-452E-9901-958728AC83B3}"
               SQLTask:SqlStatementSource="&#xA;DECLARE @EmailList VARCHAR(MAX)&#xA;SELECT @EmailList = COALESCE(@EmailList+',' , '') + EmailAddress&#xA;from EmailList WHERE ERROR=1&#xA;&#xA;Declare @subject varchar(100)=''+?+': AdBaseDevSyncLog reverted'&#xA;&#xA;Declare @Sql varchar(1000)='select Top 1 * FROM '+?+'.dbo.AdBaseDevSyncLog t WHERE  ProcessName='''+?+''' order by 1 desc'&#xA;&#xA;exec master.dbo.mt_proc_send_cdosysmail @from='OneMTSync@markettrack.com',&#xA;    @to=@EmailList,&#xA;    @subject=@subject,&#xA;    @body='AdBaseDevSyncLog on MT3SQL6',&#xA;    @bodytype='html',&#xA;    @query=@Sql,&#xA;    @queryoutput='inline'&#xA;&#xA;&#xA;;with CTE as&#xA;(&#xA;select Top(1) *&#xA;FROM   AdBaseDevSyncLog t&#xA;WHERE  ProcessName=?&#xA;order by AdBaseDevSyncLogID desc&#xA;)&#xA;delete from CTE&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="3"
@@ -5731,18 +5540,6 @@ Where RN&gt;1
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="129"
                 SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="1"
-                SQLTask:DtsVariableName="User::SyncDb"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="-1" />
-              <SQLTask:ParameterBinding
-                SQLTask:ParameterName="0"
-                SQLTask:DtsVariableName="User::SyncDb"
-                SQLTask:ParameterDirection="Input"
-                SQLTask:DataType="129"
-                SQLTask:ParameterSize="-1" />
             </SQLTask:SqlTaskData>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -5750,7 +5547,7 @@ Where RN&gt;1
           DTS:refId="Package\Loop for Each Table\Intialize AdBaseDevSyncLog"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{9C9E57C7-DD0D-4AF6-AE3D-482CD954CC3B}"
+          DTS:DTSID="{a91aa345-84b3-4bac-9d40-42b003fabd34}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Intialize AdBaseDevSyncLog"
@@ -5761,8 +5558,8 @@ Where RN&gt;1
             DTS:FilterKind="0" />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{28CE571E-03AD-481F-BF33-257E4AE61AD9}"
-              SQLTask:SqlStatementSource="If exists (select Top 1 * from AdBaseDevSyncLog where ProcessName=?)&#xA;&#x9;insert into AdBaseDevSyncLog (ProcessName, ProcessDate, CreateDT)  values (?,(Select top 1  CreateDT From AdBaseDevSyncLog Where ProcessName=? Order By AdBaseDevSyncLogID Desc) ,getdate())&#xA;else&#xA; insert into AdBaseDevSyncLog (ProcessName, ProcessDate, CreateDT) values (?,'1900-01-01',getdate())" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:Connection="{FFA906C7-3115-452E-9901-958728AC83B3}"
+              SQLTask:SqlStatementSource="If exists (select Top 1 * from AdBaseDevSyncLog where ProcessName=?)&#xA; insert into AdBaseDevSyncLog (ProcessName, ProcessDate, CreateDT)  values (?,(Select top 1  CreateDT From AdBaseDevSyncLog Where ProcessName=? Order By AdBaseDevSyncLogID Desc) ,getdate())&#xA;else&#xA; insert into AdBaseDevSyncLog (ProcessName, ProcessDate, CreateDT) values (?,'1900-01-01',getdate())" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="User::ProcessName"
@@ -5794,7 +5591,7 @@ Where RN&gt;1
           DTS:refId="Package\Loop for Each Table\Intialize Variables"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{EC1B2335-8316-4BBC-83BD-D364235B1323}"
+          DTS:DTSID="{71571c37-0592-4c3a-a94c-151a217e0952}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Intialize Variables"
@@ -5805,7 +5602,7 @@ Where RN&gt;1
             DTS:FilterKind="0" />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{28CE571E-03AD-481F-BF33-257E4AE61AD9}"
+              SQLTask:Connection="{FFA906C7-3115-452E-9901-958728AC83B3}"
               SQLTask:SqlStatementSource="&#xA; Select Top 1  ?=ProcessDate, ?=CreateDT&#xA;From AdBaseDevSyncLog &#xA;Where ProcessName = ?&#xA;Order By AdBaseDevSyncLogID Desc&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
@@ -5832,7 +5629,7 @@ Where RN&gt;1
           DTS:refId="Package\Loop for Each Table\Variable Assignment"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{83F2D60D-76DA-4FCD-ABA7-E6526E689684}"
+          DTS:DTSID="{d6ae44ee-013a-4951-b4e1-aafc3d941ee3}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Variable Assignment"
@@ -5843,7 +5640,7 @@ Where RN&gt;1
             DTS:FilterKind="0" />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{28CE571E-03AD-481F-BF33-257E4AE61AD9}"
+              SQLTask:Connection="{FFA906C7-3115-452E-9901-958728AC83B3}"
               SQLTask:SqlStatementSource="Declare @ID int&#xA;&#xA;Insert Into VariableAssignment(MTTable,MTDB,MTLogDB,OraTable,DTAdded,StartDate,EndDate,Query,ProcessName,DMLOp,IsDebug,Run,OraSPCall)&#xA;Select ?,?,?,?,getdate(),?,?,?,?,?,?,?,'Call P_SynchronizationProcess ('''+?+''','''+?+''','''+?+''','+Cast(? as varchar(1))+')'&#xA;&#xA;SELECT @ID = SCOPE_IDENTITY()&#xA;&#xA;SELECT ?=  OraSPCall from VariableAssignment WHERE ID =@ID&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
@@ -5931,7 +5728,7 @@ Where RN&gt;1
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Loop for Each Table.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{452D6A86-C4F4-4280-A472-D1CBCD2D3928}"
+          DTS:DTSID="{17e640bd-1161-4b76-b199-265db5172773}"
           DTS:From="Package\Loop for Each Table\Intialize AdBaseDevSyncLog"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"
@@ -5939,7 +5736,7 @@ Where RN&gt;1
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Loop for Each Table.PrecedenceConstraints[Constraint 1]"
           DTS:CreationName=""
-          DTS:DTSID="{02A4D100-47E8-4655-A412-DC1B38CF1515}"
+          DTS:DTSID="{7c912544-9772-4aef-a740-7be09b314784}"
           DTS:From="Package\Loop for Each Table\Intialize Variables"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 1"
@@ -5947,7 +5744,7 @@ Where RN&gt;1
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Loop for Each Table.PrecedenceConstraints[Constraint 2]"
           DTS:CreationName=""
-          DTS:DTSID="{EA53F5A4-1223-402E-8361-080293B5CB69}"
+          DTS:DTSID="{66816187-d882-417e-ab4d-5071b16e485f}"
           DTS:EvalOp="1"
           DTS:Expression="@[User::MTTable]==&quot;Ad&quot;"
           DTS:From="Package\Loop for Each Table\Variable Assignment"
@@ -5957,7 +5754,7 @@ Where RN&gt;1
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Loop for Each Table.PrecedenceConstraints[Constraint 3]"
           DTS:CreationName=""
-          DTS:DTSID="{1AF4E49F-A9A9-4156-90D5-F45B8B9C44BF}"
+          DTS:DTSID="{1d55a213-ac07-41d8-bd7f-e40400ed0055}"
           DTS:From="Package\Loop for Each Table\Ad"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 3"
@@ -5967,56 +5764,56 @@ Where RN&gt;1
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{B50A9836-5E3F-4032-859A-8917992094B2}"
-          DTS:ObjectName="{B50A9836-5E3F-4032-859A-8917992094B2}"
+          DTS:DTSID="{62DCBEF6-6BC5-45CE-B378-10F0C6959987}"
+          DTS:ObjectName="{62DCBEF6-6BC5-45CE-B378-10F0C6959987}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::MTTable" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{FCC574D0-3D7E-4B56-A5DC-2335862B4A82}"
-          DTS:ObjectName="{FCC574D0-3D7E-4B56-A5DC-2335862B4A82}"
+          DTS:DTSID="{2A4F59E4-BF64-47F8-8355-4EDD3FE85109}"
+          DTS:ObjectName="{2A4F59E4-BF64-47F8-8355-4EDD3FE85109}"
           DTS:ValueIndex="1"
           DTS:VariableName="User::MTDB" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{14AB9154-4718-4418-BB42-3620071EBF26}"
-          DTS:ObjectName="{14AB9154-4718-4418-BB42-3620071EBF26}"
+          DTS:DTSID="{23169932-05E7-444E-A13C-E6108DC42E90}"
+          DTS:ObjectName="{23169932-05E7-444E-A13C-E6108DC42E90}"
           DTS:ValueIndex="2"
           DTS:VariableName="User::MTLogDB" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{B78B6751-171C-4527-A8A5-4722709EE2FB}"
-          DTS:ObjectName="{B78B6751-171C-4527-A8A5-4722709EE2FB}"
+          DTS:DTSID="{7AE77B90-5743-4314-BC05-8416C05A0E50}"
+          DTS:ObjectName="{7AE77B90-5743-4314-BC05-8416C05A0E50}"
           DTS:ValueIndex="3"
           DTS:VariableName="User::Media" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{6B242CDB-F419-4B6D-B094-1305AA8A06EC}"
-          DTS:ObjectName="{6B242CDB-F419-4B6D-B094-1305AA8A06EC}"
+          DTS:DTSID="{B7A60513-B4A0-437B-AC38-6F605423DC82}"
+          DTS:ObjectName="{B7A60513-B4A0-437B-AC38-6F605423DC82}"
           DTS:ValueIndex="4"
           DTS:VariableName="User::TableType" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{E2A4E3F3-9C6A-49A0-A500-B478A9574B87}"
-          DTS:ObjectName="{E2A4E3F3-9C6A-49A0-A500-B478A9574B87}"
+          DTS:DTSID="{74491EDF-F629-4C64-8D74-6B08AFD08AA1}"
+          DTS:ObjectName="{74491EDF-F629-4C64-8D74-6B08AFD08AA1}"
           DTS:ValueIndex="5"
           DTS:VariableName="User::ProcessName" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{296DD290-AAFA-4340-8C83-C8246F5172D1}"
-          DTS:ObjectName="{296DD290-AAFA-4340-8C83-C8246F5172D1}"
+          DTS:DTSID="{E260F1DA-2BFC-41A6-AE62-ADBCA627F481}"
+          DTS:ObjectName="{E260F1DA-2BFC-41A6-AE62-ADBCA627F481}"
           DTS:ValueIndex="6"
           DTS:VariableName="User::DMLOp" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{30176904-E88B-4952-A60B-9A6DBD1A6117}"
-          DTS:ObjectName="{30176904-E88B-4952-A60B-9A6DBD1A6117}"
+          DTS:DTSID="{83486F85-73C1-4D60-8773-7F4392AEB4D5}"
+          DTS:ObjectName="{83486F85-73C1-4D60-8773-7F4392AEB4D5}"
           DTS:ValueIndex="7"
           DTS:VariableName="User::IsDebug" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{A5866FE5-C311-4D84-82EB-1E01C8F8BB18}"
-          DTS:ObjectName="{A5866FE5-C311-4D84-82EB-1E01C8F8BB18}"
+          DTS:DTSID="{446C2B50-5C75-4C21-82FF-1458CDECF92A}"
+          DTS:ObjectName="{446C2B50-5C75-4C21-82FF-1458CDECF92A}"
           DTS:ValueIndex="8"
           DTS:VariableName="User::Run" />
       </DTS:ForEachVariableMappings>
@@ -6026,7 +5823,7 @@ Where RN&gt;1
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{8C297D75-36B9-4B47-8997-C54279EFC594}"
+      DTS:DTSID="{ac395f91-3405-41cb-91a5-2b7039c1539b}"
       DTS:From="Package\Assign Media Values"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
@@ -6034,7 +5831,7 @@ Where RN&gt;1
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{7075B032-19F8-4107-A81E-B849031A18A8}"
+      DTS:DTSID="{1db514de-cc48-430a-bbcf-13655a20b754}"
       DTS:From="Package\Email List"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
@@ -6044,7 +5841,7 @@ Where RN&gt;1
     <DTS:EventHandler
       DTS:refId="Package.EventHandlers[OnError]"
       DTS:CreationName="OnError"
-      DTS:DTSID="{E3F2E61D-25D7-44E1-AC45-254027E8F3A0}"
+      DTS:DTSID="{CB6429E2-6C53-4797-9FAF-F355EABEAEF0}"
       DTS:EventID="0"
       DTS:EventName="OnError"
       DTS:LocaleID="-1">
@@ -6052,7 +5849,7 @@ Where RN&gt;1
         <DTS:Variable
           DTS:CreationName=""
           DTS:Description="The propagate property of the event"
-          DTS:DTSID="{4AC39BA6-AF7C-455C-A362-5EF79C4DD59D}"
+          DTS:DTSID="{597CBF4A-D6B8-4A7A-9FC1-923EB2876D2F}"
           DTS:IncludeInDebugDump="6789"
           DTS:Namespace="System"
           DTS:ObjectName="Propagate">
@@ -6065,7 +5862,7 @@ Where RN&gt;1
           DTS:refId="Package.EventHandlers[OnError]\Send Mail Task"
           DTS:CreationName="Microsoft.SendMailTask"
           DTS:Description="Send Mail Task"
-          DTS:DTSID="{65C35412-DA38-4A97-87C5-0F30BDE49C7E}"
+          DTS:DTSID="{966174e2-836e-49ce-98cb-dd872688cff7}"
           DTS:ExecutableType="Microsoft.SendMailTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Send Mail Task"
@@ -6082,11 +5879,11 @@ Error Description:                " + (DT_STR, 2000,1252)  @[System::ErrorDescri
             DTS:Name="ToLine">@[User::EmailList]</DTS:PropertyExpression>
           <DTS:ObjectData>
             <SendMailTask:SendMailTaskData
-              SendMailTask:SMTPServer="{0C0ADEDB-35F3-4D38-AB43-E72A6E807342}"
+              SendMailTask:SMTPServer="{60DCC1F2-3BDB-437B-9A4B-4A25EA628798}"
               SendMailTask:From="OneMTSync@markettrack.com"
-              SendMailTask:To="vshukla@markettrack.com"
-              SendMailTask:Subject="AdBaseDevSync v1.0.277 Error on MT3SQL6"
-              SendMailTask:MessageSource="Package:                              AdBaseDevSync&#xA;Time:                                      3/9/2018 4:58:08 AM&#xA;Task:                                       &#xA;Error Description:                " xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+              SendMailTask:To="vipuld@markettrack.com"
+              SendMailTask:Subject="Package1 v1.0.23 Error on MT3SQL6"
+              SendMailTask:MessageSource="Package:                              Package1&#xA;Time:                                      3/12/2018 1:41:54 AM&#xA;Task:                                       &#xA;Error Description:                " xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -6107,15 +5904,23 @@ Error Description:                " + (DT_STR, 2000,1252)  @[System::ErrorDescri
         <NodeLayout
           Size="174,42"
           Id="Package\Assign Media Values"
-          TopLeft="598.333333333333,5.66666666666666" />
+          TopLeft="360.5,60" />
         <NodeLayout
           Size="124,42"
           Id="Package\Email List"
-          TopLeft="417,8" />
+          TopLeft="179.166666666667,62.3333333333333" />
         <NodeLayout
           Size="130,42"
           Id="Package\Loop for Each Table\Ad\Ad Staging"
           TopLeft="72.6666666666666,80.5" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Loop for Each Table\Ad\Copy to OneMTDev Ad"
+          TopLeft="82,250" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Loop for Each Table\Ad\Execute SQL Task"
+          TopLeft="61,152" />
         <NodeLayout
           Size="204,42"
           Id="Package\Loop for Each Table\Ad\Truncate MT Staging table"
@@ -6142,10 +5947,6 @@ Error Description:                " + (DT_STR, 2000,1252)  @[System::ErrorDescri
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Loop for Each Table\Ad\Execute SQL Task"
-          TopLeft="61,152" />
         <EdgeLayout
           Id="Package\Loop for Each Table\Ad.PrecedenceConstraints[Constraint 1]"
           TopLeft="140.083333333333,122.5">
@@ -6168,10 +5969,6 @@ Error Description:                " + (DT_STR, 2000,1252)  @[System::ErrorDescri
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="186,42"
-          Id="Package\Loop for Each Table\Ad\Copy to OneMTDev Ad"
-          TopLeft="82,250" />
         <EdgeLayout
           Id="Package\Loop for Each Table\Ad.PrecedenceConstraints[Constraint 2]"
           TopLeft="142.5,194">
@@ -6345,10 +6142,10 @@ Error Description:                " + (DT_STR, 2000,1252)  @[System::ErrorDescri
           PanelSize="788,896"
           Size="788,939"
           Id="Package\Loop for Each Table"
-          TopLeft="297.833333333333,81.6666666666666" />
+          TopLeft="60,136" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="688.583333333333,47.6666666666667">
+          TopLeft="450.75,102">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6370,7 +6167,7 @@ Error Description:                " + (DT_STR, 2000,1252)  @[System::ErrorDescri
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="541,27.8333333333333">
+          TopLeft="303.166666666667,82.1666666666666">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6393,18 +6190,6 @@ Error Description:                " + (DT_STR, 2000,1252)  @[System::ErrorDescri
       </GraphLayout>
     </LayoutInfo>
   </Package>
-  <DtsEventHandler
-    design-time-name="Package.EventHandlers[OnError]">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
-        <NodeLayout
-          Size="150,42"
-          Id="Package.EventHandlers[OnError]\Send Mail Task"
-          TopLeft="60,60" />
-      </GraphLayout>
-    </LayoutInfo>
-  </DtsEventHandler>
   <TaskHost
     design-time-name="Package\Loop for Each Table\Ad\Ad Staging">
     <LayoutInfo>
@@ -6461,6 +6246,11 @@ Error Description:                " + (DT_STR, 2000,1252)  @[System::ErrorDescri
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
@@ -6468,6 +6258,11 @@ Error Description:                " + (DT_STR, 2000,1252)  @[System::ErrorDescri
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -6477,13 +6272,13 @@ Error Description:                " + (DT_STR, 2000,1252)  @[System::ErrorDescri
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="209,42"
-          Id="Package\Loop for Each Table\Ad\Copy to OneMTDev Ad\AdLogStagingEmail_AdBase"
-          TopLeft="411,95" />
-        <NodeLayout
           Size="146,42"
           Id="Package\Loop for Each Table\Ad\Copy to OneMTDev Ad\OneMTDev Ad"
           TopLeft="440,213" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\Loop for Each Table\Ad\Copy to OneMTDev Ad\AdLogStagingEmail_AdBase"
+          TopLeft="411,95" />
         <EdgeLayout
           Id="Package\Loop for Each Table\Ad\Copy to OneMTDev Ad.Paths[OLE DB Source Output]"
           TopLeft="514.25,137">
@@ -6510,14 +6305,6 @@ Error Description:                " + (DT_STR, 2000,1252)  @[System::ErrorDescri
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Loop for Each Table\Ad\Copy to OneMTDev Ad\AdLogStagingEmail_AdBase">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Loop for Each Table\Ad\Copy to OneMTDev Ad\OneMTDev Ad">
     <Properties>
       <Property>
@@ -6530,5 +6317,25 @@ Error Description:                " + (DT_STR, 2000,1252)  @[System::ErrorDescri
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loop for Each Table\Ad\Copy to OneMTDev Ad\AdLogStagingEmail_AdBase">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="150,42"
+          Id="Package.EventHandlers[OnError]\Send Mail Task"
+          TopLeft="456,118" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
