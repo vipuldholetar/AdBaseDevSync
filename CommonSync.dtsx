@@ -7,12 +7,12 @@
   DTS:CreatorName="MT3\VD_RRFa3EFm5WKc"
   DTS:DTSID="{5BEBCF1C-08CA-4C5C-B3E7-1A1C480D0A98}"
   DTS:ExecutableType="SSIS.Package.3"
-  DTS:LastModifiedProductVersion="11.0.6020.0"
+  DTS:LastModifiedProductVersion="14.0.3006.16"
   DTS:LocaleID="1033"
   DTS:ObjectName="CommonSync"
   DTS:PackageType="5"
-  DTS:VersionBuild="48"
-  DTS:VersionGUID="{CB27DC1F-7797-44D1-9160-4ECD4DC47FD9}">
+  DTS:VersionBuild="49"
+  DTS:VersionGUID="{2FAA993E-E1CD-44E0-A0D3-475E5FFCAD5B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -453,7 +453,7 @@ JOIN  B ON A.ID=B.ID
                   <components>
                     <component
                       refId="Package\Loop through each table\Advertiser\Copy to OneMTDev\AdvertiserLogStaging_AdBase"
-                      componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+                      componentClassID="DTSAdapter.OLEDBSource.3"
                       contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
                       description="OLE DB Source"
                       name="AdvertiserLogStaging_AdBase"
@@ -1192,7 +1192,7 @@ JOIN  B ON A.ID=B.ID
                     </component>
                     <component
                       refId="Package\Loop through each table\Advertiser\Copy to OneMTDev\OneMTDev Advertiser"
-                      componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+                      componentClassID="DTSAdapter.OLEDBDestination.3"
                       contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
                       description="OLE DB Destination"
                       name="OneMTDev Advertiser"
@@ -1474,7 +1474,7 @@ JOIN  B ON A.ID=B.ID
                               refId="Package\Loop through each table\Advertiser\Copy to OneMTDev\OneMTDev Advertiser.Inputs[OLE DB Destination Input].ExternalColumns[ShortName]"
                               codePage="1252"
                               dataType="str"
-                              length="50"
+                              length="35"
                               name="ShortName" />
                             <externalMetadataColumn
                               refId="Package\Loop through each table\Advertiser\Copy to OneMTDev\OneMTDev Advertiser.Inputs[OLE DB Destination Input].ExternalColumns[TradeClassID]"
@@ -1675,7 +1675,7 @@ JOIN  B ON A.ID=B.ID
                   <components>
                     <component
                       refId="Package\Loop through each table\Advertiser\Staging Table\AdvertiserLog"
-                      componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+                      componentClassID="DTSAdapter.OLEDBSource.3"
                       contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
                       description="OLE DB Source"
                       name="AdvertiserLog"
@@ -2981,7 +2981,7 @@ JOIN  B ON A.ID=B.ID
                     </component>
                     <component
                       refId="Package\Loop through each table\Advertiser\Staging Table\AdvertiserLogStaging_AdBase"
-                      componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+                      componentClassID="DTSAdapter.OLEDBDestination.3"
                       contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
                       description="OLE DB Destination"
                       name="AdvertiserLogStaging_AdBase"
@@ -3876,8 +3876,8 @@ Error Description:                " + (DT_STR, 2000,1252)  @[System::ErrorDescri
               SendMailTask:SMTPServer="{C2010F0C-0E6A-4371-B2A1-C1EA871F2DCA}"
               SendMailTask:From="OneMTSync@markettrack.com"
               SendMailTask:To="vipuld@markettrack.com"
-              SendMailTask:Subject="CommonSync v1.0.48 Error on MT3SQL6"
-              SendMailTask:MessageSource="Package:                              CommonSync&#xA;Time:                                      3/13/2018 5:00:25 AM&#xA;Task:                                       &#xA;Error Description:                " xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+              SendMailTask:Subject="CommonSync v1.0.49 Error on MT3SQL6"
+              SendMailTask:MessageSource="Package:                              CommonSync&#xA;Time:                                      4/25/2018 1:51:40 AM&#xA;Task:                                       &#xA;Error Description:                " xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
@@ -3904,10 +3904,6 @@ Error Description:                " + (DT_STR, 2000,1252)  @[System::ErrorDescri
           Id="Package\EmailList"
           TopLeft="290.5,49" />
         <NodeLayout
-          Size="143,42"
-          Id="Package\Loop through each table\Advertiser\Staging Table"
-          TopLeft="55,92" />
-        <NodeLayout
           Size="170,42"
           Id="Package\Loop through each table\Advertiser\Copy to OneMTDev"
           TopLeft="34,238" />
@@ -3915,6 +3911,10 @@ Error Description:                " + (DT_STR, 2000,1252)  @[System::ErrorDescri
           Size="182,42"
           Id="Package\Loop through each table\Advertiser\Delete Existing and Cleanup Staging Table"
           TopLeft="33,162" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\Loop through each table\Advertiser\Staging Table"
+          TopLeft="55,92" />
         <NodeLayout
           Size="163,42"
           Id="Package\Loop through each table\Advertiser\Truncate MT Staging table"
@@ -4191,52 +4191,6 @@ Error Description:                " + (DT_STR, 2000,1252)  @[System::ErrorDescri
     </LayoutInfo>
   </DtsEventHandler>
   <TaskHost
-    design-time-name="Package\Loop through each table\Advertiser\Staging Table">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="143,42"
-          Id="Package\Loop through each table\Advertiser\Staging Table\AdvertiserLog"
-          TopLeft="416,114" />
-        <NodeLayout
-          Size="219,42"
-          Id="Package\Loop through each table\Advertiser\Staging Table\AdvertiserLogStaging_AdBase"
-          TopLeft="372,218" />
-        <EdgeLayout
-          Id="Package\Loop through each table\Advertiser\Staging Table.Paths[OLE DB Source Output]"
-          TopLeft="484.5,156">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,62"
-              Start="0,0"
-              End="0,54.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,54.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Loop through each table\Advertiser\Staging Table\AdvertiserLog">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
     design-time-name="Package\Loop through each table\Advertiser\Copy to OneMTDev">
     <LayoutInfo>
       <GraphLayout
@@ -4300,7 +4254,7 @@ Error Description:                " + (DT_STR, 2000,1252)  @[System::ErrorDescri
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Loop through each table\Advertiser\Staging Table\AdvertiserLogStaging_AdBase">
+    design-time-name="Package\Loop through each table\Advertiser\Copy to OneMTDev\OneMTDev Advertiser">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4312,8 +4266,54 @@ Error Description:                " + (DT_STR, 2000,1252)  @[System::ErrorDescri
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Loop through each table\Advertiser\Staging Table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="143,42"
+          Id="Package\Loop through each table\Advertiser\Staging Table\AdvertiserLog"
+          TopLeft="416,114" />
+        <NodeLayout
+          Size="219,42"
+          Id="Package\Loop through each table\Advertiser\Staging Table\AdvertiserLogStaging_AdBase"
+          TopLeft="372,218" />
+        <EdgeLayout
+          Id="Package\Loop through each table\Advertiser\Staging Table.Paths[OLE DB Source Output]"
+          TopLeft="484.5,156">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62"
+              Start="0,0"
+              End="0,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Loop through each table\Advertiser\Copy to OneMTDev\OneMTDev Advertiser">
+    design-time-name="Package\Loop through each table\Advertiser\Staging Table\AdvertiserLog">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loop through each table\Advertiser\Staging Table\AdvertiserLogStaging_AdBase">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
